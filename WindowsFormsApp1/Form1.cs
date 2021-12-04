@@ -47,6 +47,9 @@ namespace WindowsFormsApp1
             {
 
                 MessageBox.Show("Login Sucessfull");
+                menu open_menu = new menu();
+                open_menu.Show();
+                this.Hide();
             }
             else {
 
