@@ -24,6 +24,10 @@ namespace WindowsFormsApp1
 
         private void button1_Click(object sender, EventArgs e)
         {
+         
+            student open_student  = new student();
+            open_student.Show();
+            this.Hide();
 
         }
 
@@ -49,6 +53,14 @@ namespace WindowsFormsApp1
 
         private void button7_Click(object sender, EventArgs e)
         {
+
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+             
+            login_form login_Form = new login_form();
+            login_Form.Show();
 
         }
     }
