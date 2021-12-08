@@ -56,6 +56,7 @@ namespace WindowsFormsApp1
 
         private void button2_Click(object sender, EventArgs e)
         {
+            // View Code 
 
             try
             {
@@ -95,6 +96,34 @@ namespace WindowsFormsApp1
 
                 MessageBox.Show("Error");
             }
+
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+
+            // Update Code
+
+            try {
+
+                string MyConnection = "server=localhost; userId=root; password=; database=esoftstudent";
+
+                string query = "UPDATE `student` SET `id` = '" + this.txt_id.Text + "', `name` = '" +this.txt_name.Text + "', `address` ='" +this.txt_address.Text + "', `gender`= '"+this.txt_gender.Text+"', `course`= '" + this.txt_course.Text + "', `phone` = '" + this.txt_phone.Text + "' WHERE `id`= '"+this.txt_id.Text+"'";
+                MySqlConnection Myconn = new MySqlConnection(MyConnection);
+                MySqlCommand Mycommand = new MySqlCommand(query, Myconn);
+                MySqlDataReader MyReader;
+                Myconn.Open();
+                MyReader = Mycommand.ExecuteReader();
+                MessageBox.Show("Successfully Updated");
+                while(MyReader.Read())
+                    Myconn.Close();
+
+
+            } catch (Exception ex){
+
+                MessageBox.Show(ex.Message);
+            }
+
 
         }
     }
