@@ -126,5 +126,32 @@ namespace WindowsFormsApp1
 
 
         }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            // Delete Crud
+
+            try
+            {
+
+                string MyConnection = "server=localhost; userId=root; password=; database=esoftstudent";
+                string query = "DELETE FROM `student` WHERE id = '" + this.txt_id.Text + "'";
+
+                MySqlConnection Myconn = new MySqlConnection(MyConnection);
+                MySqlCommand Mycommand = new MySqlCommand(query, Myconn);
+                MySqlDataReader MyReader;
+                Myconn.Open();
+                MyReader = Mycommand.ExecuteReader();
+                MessageBox.Show("Successfully Deleted");
+                Myconn.Close(); 
+
+
+
+            }
+            catch (Exception ex){
+
+                MessageBox.Show(ex.Message);
+            }
+         }
     }
 }
