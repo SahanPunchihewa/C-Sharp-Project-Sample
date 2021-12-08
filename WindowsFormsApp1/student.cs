@@ -44,6 +44,15 @@ namespace WindowsFormsApp1
                 MyReader = Mycommand.ExecuteReader();
                 MessageBox.Show("Registration Sucessful", "Registration", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
 
+                txt_id.Text = "";
+                txt_name.Text = "";
+                txt_address.Text = "";
+                txt_gender.Text = "";
+                txt_course.Text = "";
+                txt_phone.Text = "";
+
+                Myconn.Close();
+
             }
             catch (Exception ex)
             {
@@ -143,6 +152,17 @@ namespace WindowsFormsApp1
                 Myconn.Open();
                 MyReader = Mycommand.ExecuteReader();
                 MessageBox.Show("Successfully Deleted");
+
+                txt_id.Text = "";
+                txt_name.Text = "";
+                txt_address.Text = "";
+                txt_gender.Text = "";
+                txt_course.Text = "";
+                txt_phone.Text = "";
+
+
+
+
                 Myconn.Close(); 
 
 
@@ -153,5 +173,17 @@ namespace WindowsFormsApp1
                 MessageBox.Show(ex.Message);
             }
          }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+
+            txt_id.Text = "";
+            txt_name.Text = "";
+            txt_address.Text = "";
+            txt_gender.Text = "";
+            txt_course.Text = "";
+            txt_phone.Text = "";
+
+        }
     }
 }
