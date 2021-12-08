@@ -116,7 +116,7 @@ namespace WindowsFormsApp1
                 MyReader = Mycommand.ExecuteReader();
                 MessageBox.Show("Successfully Updated");
                 while(MyReader.Read())
-                    Myconn.Close();
+                Myconn.Close();
 
 
             } catch (Exception ex){
