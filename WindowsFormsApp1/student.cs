@@ -53,5 +53,49 @@ namespace WindowsFormsApp1
 
 
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+
+            try
+            {
+
+                if (txt_id.Text != "")
+                {
+
+                    string MyConnection = "server=localhost; userId=root; password=; database=esoftstudent";
+                    string query = "SELECT * FROM `student` WHERE id= '" + txt_id.Text + "'";
+                    MySqlConnection Myconn = new MySqlConnection(MyConnection);
+                    MySqlCommand Mycommand = new MySqlCommand(query, Myconn);
+                    MySqlDataReader MyReader;
+                    Myconn.Open();
+                    MyReader = Mycommand.ExecuteReader();
+                    Myconn.Close();
+                    MySqlDataAdapter adp = new MySqlDataAdapter(Mycommand);
+                    DataTable dt = new DataTable();
+                    adp.Fill(dt);
+
+                    txt_name.Text = dt.Rows[0][1].ToString();
+                    txt_address.Text = dt.Rows[0][2].ToString();
+                    txt_gender.Text = dt.Rows[0][3].ToString();
+                    txt_course.Text = dt.Rows[0][4].ToString();
+                    txt_phone.Text = dt.Rows[0][5].ToString();
+
+                }
+
+                else
+                {
+
+                    MessageBox.Show("Enter Value for ID");
+
+                }
+
+            }
+            catch {
+
+                MessageBox.Show("Error");
+            }
+
+        }
     }
 }
